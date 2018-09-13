@@ -2,3 +2,6 @@
 .ninja_log
 validator
 solution
+outputs
+*/generators/*
+!*/generators/*.*
