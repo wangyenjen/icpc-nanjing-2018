@@ -1,0 +1,9 @@
+cflags = -std=c++17 -O2 -Wall -Wextra -Werror -fsanitize=undefined
+
+rule cxx
+  command = g++ $cflags $in -o $out
+
+build validator : cxx validator.cpp
+  cflags = $cflags -O0 -isystem ../include
+
+build solution : cxx solution.cpp

@@ -1,6 +1,13 @@
-Git
+General
 ---
 Don't push to master.
+
+Add Makefile or build.ninja so your binaries can be built easily.
+* With Makefile, use `make -j` to build everything,
+  and `make clean` to delete built files
+  (which have to be listed explicitly).
+* With build.ninja, use `ninja` to build everything,
+  and `ninja -t clean` to delete built files.
 
 Problem Description
 ---
@@ -11,3 +18,12 @@ Aside from this,
 there is no hard requirement on formats.
 However, if you speak Tex or MathJax,
 please typeset your numbers/variables/equations in such formats.
+
+Validator
+---
+Ensure your input conforms to the problem description.
+You should use testlib.h rather than scanf.
+
+Solution
+---
+Describe your solution with comment.
