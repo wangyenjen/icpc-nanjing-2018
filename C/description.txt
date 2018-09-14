@@ -1,0 +1,41 @@
+Cherry and Chocolate
+====================
+Cherry and Chocolate plays a game on a tree.
+First, Cherry picks a node and paint it pink.
+Then, Chocolate picks another node and paint it brown.
+Afterwards, Cherry picks yet another node and paint it pink.
+The game ends here. Chocolate doesn't get a second move.
+
+For each node $v$,
+if there is no path from $v$ to the brown node without
+passing through a pink node, Cherry get a point.
+
+Cherry wants to maximize her score,
+and Chocolate wants to minimize it.
+If both player play optimally,
+what will Cherry's score be?
+
+Input
+-----
+The first line contains an integers, $n$ ($3 \le n \le 10^6$),
+the number of nodes on the tree.
+
+Each of the next $n - 1$ lines contains two integers $a_i$ and $b_i$,
+($1 \le a_i, b_i \le n$),
+meaning there is an edge between node $a_i$ and node $b_i$.
+
+Output
+------
+A single integer,
+Cherry's score if both player play optimally.
+
+Sample Input 1
+--------------
+4
+1 2
+2 3
+2 4
+
+Sample Output 1
+---------------
+3
