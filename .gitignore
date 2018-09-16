@@ -5,3 +5,5 @@ solution
 outputs
 */generators/*
 !*/generators/*.*
+*/extras/*
+!*/extras/*.*

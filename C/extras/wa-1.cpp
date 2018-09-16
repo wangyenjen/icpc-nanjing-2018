@@ -1,23 +1,19 @@
 /**
- * Let Cherry's first choice be p1.
- * Let Chocolate's choice be b.
- * Let Cherry's second choice be p2.
+ * Choose centroid for p1.
  *
- * It is clear that if p1 and b are fixed,
- * p2 must be adjacent to b.
- * Therefore, it suffices to test all of b's neighbors.
- * This is O(deg(b)).
+ * Counterexample:
  *
- * If only p1 is fixed, it suffices to test all possible b.
- * This is O(n).
+ * [a] \
+ * [a] - 1 - 2 - [b]
+ * [a] /
  *
- * Let b_p1 be the optimal b for p1.
- * The answer will not get greater if p1 is moved further away
- * from b_p1.
- * This halves the possible p1 by half if p1 is the centroid
- * of the tree.
- * Therefore, only O(log n) p1 are needed to test and
- * the solution is O(n log n) overall.
+ * [1] -> Lose max((a + 1) / 2, (b + 2) / 2)
+ * [2] -> Lose max(2 * a, (b + 1) / 2)
+ *
+ * For [2] to be the only centroid,
+ * 3 * a + 1 = b
+ *
+ * Take a=4 b=13, then [1]=7, [2]=8
  */
 #include <algorithm>
 #include <cassert>
@@ -81,46 +77,24 @@ int solve1(int b, int bp, int p1size) {
 }
 
 /**
- * size2[v] is the size of subtree v, with unstored parent.
- *
- * If mask_centroid[v] is true, it is removed from the tree
- * for this purpose.
- */
-bool mask_centroid[maxn];
-int size2[maxn];
-
-/**
- * Fills size2[] for the tree containing v.
- */
-void dfs2(int v, int p) {
-    size2[v] = 1;
-    for (int c : adj[v])
-        if (c != p && !mask_centroid[c]) {
-            dfs2(c, v);
-            size2[v] += size2[c];
-        }
-}
-
-/**
- * Returns the deepest decedent with size2 >= limit.
+ * Returns the deepest decedent with size >= limit.
  */
 int dfs3(int v, int p, int limit) {
     for (int c : adj[v])
-        if (c != p && !mask_centroid[c] && size2[c] >= limit)
+        if (c != p && size[c] >= limit)
             return dfs3(c, v, limit);
     return v;
 }
 
 /**
- * Get the centroid of the tree containing v.
- *
- * If mask_centroid[u] is true, it is removed from the tree
- * for this purpose.
+ * Get all centroids of the tree.
  */
-int get_centroid(int v) {
-    assert(!mask_centroid[v]);
-    dfs2(v, v);
-    return dfs3(v, v, (size2[v] + 1) / 2);
+std::vector<int> get_centroids() {
+    int v = dfs3(0, 0, (size[0] + 1) / 2);
+    if (size[v] * 2 == size[0])
+        return {v, parent[v]};
+    else
+        return {v};
 }
 
 } // namespace {
@@ -145,19 +119,13 @@ int main() {
 
     dfs(0, 0);
 
-    int ans = 0;
-    for (int v = 0; !mask_centroid[v]; ) {
-        int p1 = get_centroid(v);
-        mask_centroid[p1] = true;
+    std::vector<int> centroids = get_centroids();
 
+    int ans = 0;
+    for (int p1 : get_centroids()) {
         int ans2 = n;
-        for (int b0 : adj[p1]) {
-            int ans3 = solve1(b0, p1, get_size(p1, b0));
-            if (ans2 > ans3) {
-                ans2 = ans3;
-                v = b0;
-            }
-        }
+        for (int b0 : adj[p1])
+            ans2 = std::min(ans2, solve1(b0, p1, get_size(p1, b0)));
         ans = std::max(ans, ans2);
     }
 
