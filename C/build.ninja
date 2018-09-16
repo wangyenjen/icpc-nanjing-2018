@@ -4,11 +4,25 @@ cflags = -std=c++17 -Wall -Wextra -Werror -fsanitize=undefined $
 rule cxx
   command = g++ $cflags $in -o $out
 rule solution
-  command = ./solution < $in > $out
+  command = prlimit -s-1 ./solution < $in > $out
+rule gen-tree
+  command = generators/tree $args > $out && ./validator < $out
 
 build validator: cxx validator.cpp
 
 build solution: cxx solution.cpp
   cflags = $cflags -O2
 
-build outputs/01-sample.txt: solution inputs/01-sample.txt | ./solution
+build generators/tree: cxx generators/tree.cpp
+
+build inputs/02.txt: gen-tree | generators/tree validator
+  args = random 999999
+build inputs/03.txt: gen-tree | generators/tree validator
+  args = linear 333333 random 666666
+build inputs/04.txt: gen-tree | generators/tree validator
+  args = star 333333 random 666666
+
+build outputs/01-sample.txt: solution inputs/01-sample.txt | solution
+build outputs/02.txt: solution inputs/02.txt | solution
+build outputs/03.txt: solution inputs/03.txt | solution
+build outputs/04.txt: solution inputs/04.txt | solution
