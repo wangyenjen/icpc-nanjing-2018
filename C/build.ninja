@@ -16,6 +16,7 @@ build solution: cxx solution.cpp
 build generators/tree: cxx generators/tree.cpp
 
 build extras/wa-1: cxx extras/wa-1.cpp
+build extras/wa-2: cxx extras/wa-2.cpp
 
 build inputs/02.txt: gen-tree | generators/tree validator
   args = random 99999
@@ -25,6 +26,8 @@ build inputs/04.txt: gen-tree | generators/tree validator
   args = star 33333 random 66666
 build inputs/06.txt: gen-tree | generators/tree validator
   args = linear 33333 star 22222 random 44444
+build inputs/07.txt: gen-tree | generators/tree validator
+  args = linear 35000 parent 0 linear 9999 parent 0 linear 9999 parent 0 linear 9999 random 34999
 
 build outputs/01-sample.txt: solution inputs/01-sample.txt | solution
 build outputs/02.txt: solution inputs/02.txt | solution
@@ -32,3 +35,4 @@ build outputs/03.txt: solution inputs/03.txt | solution
 build outputs/04.txt: solution inputs/04.txt | solution
 build outputs/05-wa-1.txt: solution inputs/05-wa-1.txt | solution
 build outputs/06.txt: solution inputs/06.txt | solution
+build outputs/07.txt: solution inputs/07.txt | solution

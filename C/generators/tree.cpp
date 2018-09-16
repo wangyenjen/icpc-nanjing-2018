@@ -40,6 +40,15 @@ static std::vector<int> generate_tree(int argc, char **argv) {
                 parent.push_back(centor);
 
             argc -= 2, argv += 2;
+        } else if (std::strcmp(type, "parent") == 0) {
+            assert(argc >= 2);
+            int p = std::atoi(argv[1]);
+
+            assert(p < i);
+            parent.push_back(p);
+            i++;
+
+            argc -= 2, argv += 2;
         } else {
             assert(false);
         }
