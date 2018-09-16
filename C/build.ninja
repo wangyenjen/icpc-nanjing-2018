@@ -16,11 +16,11 @@ build solution: cxx solution.cpp
 build generators/tree: cxx generators/tree.cpp
 
 build inputs/02.txt: gen-tree | generators/tree validator
-  args = random 999999
+  args = random 99999
 build inputs/03.txt: gen-tree | generators/tree validator
-  args = linear 333333 random 666666
+  args = linear 33333 random 66666
 build inputs/04.txt: gen-tree | generators/tree validator
-  args = star 333333 random 666666
+  args = star 33333 random 66666
 
 build outputs/01-sample.txt: solution inputs/01-sample.txt | solution
 build outputs/02.txt: solution inputs/02.txt | solution

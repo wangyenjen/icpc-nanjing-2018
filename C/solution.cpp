@@ -26,7 +26,7 @@
 
 namespace {
 
-constexpr int maxn = 1'000'000;
+constexpr int maxn = 100'000;
 
 /**
  * The adjacency list of the tree.

@@ -26,13 +26,13 @@ $(GENERATORS): %: %.cpp
 
 $(INPUTS): validator
 inputs/02.txt: generators/tree
-	generators/tree random 999999 > $@
+	generators/tree random 99999 > $@
 	./validator < $@
 inputs/03.txt: generators/tree
-	generators/tree linear 333333 random 666666 > $@
+	generators/tree linear 33333 random 66666 > $@
 	./validator < $@
 inputs/04.txt: generators/tree
-	generators/tree star 333333 random 666666 > $@
+	generators/tree star 33333 random 66666 > $@
 	./validator < $@
 
 $(OUTPUTS): outputs/% : inputs/% solution

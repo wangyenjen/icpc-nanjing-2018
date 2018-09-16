@@ -17,7 +17,7 @@ bool merge(std::vector<int> &dsu, int a, int b) {
 int main(int argc, char **argv) {
     registerValidation(argc, argv);
 
-    int n = inf.readInt(3, 1'000'000, "n");
+    int n = inf.readInt(3, 100'000, "n");
     inf.readEoln();
 
     std::vector<int> dsu(n);

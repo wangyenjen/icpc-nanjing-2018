@@ -17,7 +17,7 @@ what will Cherry's score be?
 
 Input
 -----
-The first line contains an integers, $n$ ($3 \le n \le 10^6$),
+The first line contains an integers, $n$ ($3 \le n \le 10^5$),
 the number of nodes on the tree.
 
 Each of the next $n - 1$ lines contains two integers $a_i$ and $b_i$,
