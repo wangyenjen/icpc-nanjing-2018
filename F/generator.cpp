@@ -155,6 +155,7 @@ void Gen(int argc, char** argv) {
     for (size_t j = 0; j < N; j++) {
       if (!adj[i][j]) continue;
       size_t g = rnd.next(fac) + 1;
+      if (i == j && !rnd.next(5)) g *= 10;
       for (size_t k = 0; k < g; k++) gen.AddEdge(i, j);
     }
   }
