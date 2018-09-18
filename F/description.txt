@@ -1,0 +1,19 @@
+
+====================
+TODO: validator (strongly connected), description, solution, more subtasks
+
+Input
+-----
+
+
+Output
+------
+
+
+Sample Input 1
+--------------
+
+
+Sample Output 1
+---------------
+
