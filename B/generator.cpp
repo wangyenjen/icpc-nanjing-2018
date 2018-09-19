@@ -29,24 +29,24 @@ std::vector<Data> Produce1(Data& N, Data& K, int mode) {
     default: throw;
   }
   std::vector<Data> R;
-  for (int i = 0; i < N; i++) R.push_back(Rnd(0, N * 100));
+  for (int i = 0; i < N; i++) R.push_back(Rnd(0, N * 3000));
   Reduce(N, K, R); return R;
 }
 
 std::vector<Data> Produce2(Data& N, Data& K, int mode) {
   K = 1;
   std::vector<Data> R;
-  for (int i = 0; i < N / 2; i++) R.push_back(Rnd(0, N * 10));
-  for (int i = 0; i < N / 2; i++) R.push_back(Rnd(N * 90, N * 100));
+  for (int i = 0; i < N / 2; i++) R.push_back(Rnd(0, N * 100));
+  for (int i = 0; i < N / 2; i++) R.push_back(Rnd(N * 2900, N * 3000));
   Reduce(N, K, R); return R;
 }
 
 std::vector<Data> Produce3(Data& N, Data& K, int mode) {
   std::vector<Data> R;
   Data B = std::min(N, (Data)(sqrt(N) * 2 + 1));
-  Data totB = (N - 1) / B + 1, span = N * 50 / totB / 13;
+  Data totB = (N - 1) / B + 1, span = N * 1500 / totB / 13;
   for (int i = 0; i < N; i++) {
-    Data pos = (i / B * N * 100 + 50 * N) / totB;
+    Data pos = (i / B * N * 3000 + 1500 * N) / totB;
     R.push_back(Rnd(pos - span, pos + span));
   }
   switch (mode) {
