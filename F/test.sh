@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 tmpfile=$(mktemp)
-TL=3
+TL=2
 for exe in extras/*; do
   test -x "$exe" || continue
   echo -n "Testing $exe: "
@@ -12,7 +12,7 @@ for exe in extras/*; do
       echo "TLE/RE on $input"
       continue 2
     fi
-    cmp -s "$tmpfile" "$output" || {
+    ./checker "$input" "$tmpfile" "$output" 2> /dev/null || {
       echo "WA on $input"
       continue 2
     }

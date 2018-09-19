@@ -2,8 +2,6 @@
 #include <cstdio>
 #include <algorithm>
 
-using Data = long double;
-
 const int kN = 403;
 using Row = Data[kN];
 
@@ -41,12 +39,13 @@ Data Inverse(Row a[], Row b[], int N) {
   }
   for (int i = 0; i < N; i++) ord[ord_x[i]] = ord_y[i];
   for (int i = 0; i < N; i++) {
-    int x = ord[i];
-    if (x == i) continue;
-    for (int j = 0; j < N; j++) std::swap(b[i][j], b[x][j]);
-    std::swap(ord[x], ord[i]);
+    while (1) {
+      int x = ord[i];
+      if (x == i) break;
+      for (int j = 0; j < N; j++) std::swap(b[i][j], b[x][j]);
+      std::swap(ord[x], ord[i]);
+    }
   }
-
   return det;
 }
 
@@ -65,8 +64,6 @@ inline void RemoveRC(int x, int y, int N) {
 }
 
 #ifdef N3
-const int kBlock = 50;
-
 Row v, vA;
 inline void ChangeRow(int a, int b, int x, int y, int N) {
   for (int i = 0; i < b; i++) v[i] = mat[y][i] - mat[x][i];
@@ -116,7 +113,7 @@ int main() {
   }
   for (int i = 0; i < N; i++) {
     if (!cnt[i]) continue;
-    Data p = Data(-1) / cnt[i];
+    Data p = (Data)(-1) / cnt[i];
     for (int j = 0; j < N; j++) mat[i][j] *= p;
     mat[i][i] += 1;
   }
@@ -124,25 +121,25 @@ int main() {
   for (int L = 0; L < N; L += kBlock) {
     int R = std::min(N, L + kBlock);
     int mid = (L + R) / 2;
-    RemoveRC(L, L, N);
+    RemoveRC(mid, mid, N);
     Inverse(now, inv, N - 1);
     for (int i = 0; i < N - 1; i++) {
       for (int j = 0; j < N - 1; j++) tmpinv[i][j] = inv[i][j];
     }
-    for (int i = L; i < R - 1; i++) {
+    for (int i = mid; i < R - 1; i++) {
       MakeTable(i, N);
       ChangeRow(i, i, i + 1, i, N);
       ChangeCol(i, i + 1, i + 1, i, N);
     }
     MakeTable(R - 1, N);
-    /*for (int i = 0; i < N - 1; i++) {
+    for (int i = 0; i < N - 1; i++) {
       for (int j = 0; j < N - 1; j++) inv[i][j] = tmpinv[i][j];
     }
     for (int i = mid - 1; i >= L; i--) {
       ChangeCol(i, i + 1, i, i + 1, N);
       ChangeRow(i, i, i, i + 1, N);
       MakeTable(i, N);
-    }*/
+    }
   }
 #else
   for (int i = 0; i < N; i++) {
@@ -156,6 +153,6 @@ int main() {
     Data ans = 0;
     scanf("%d%d", &N, &prv);
     for (; --N; prv = now) scanf("%d", &now), ans += table[prv][now];
-    printf("%.10Lf\n", ans);
+    printf(kFormat"\n", ans);
   }
 }

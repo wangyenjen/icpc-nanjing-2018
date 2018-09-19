@@ -5,17 +5,24 @@ CXXFLAGS = -std=c++14 -Wall -O2
 
 SAMPLES = 00
 TESTDATA = 01 02 03 04 05 06 07 08 09 10 11 12
-TESTSUB = wa-1 tle-1 ac-1
+TESTSUB = tle-1 tle-2 ac-1
 
 INPUTS = $(TESTDATA:%=inputs/%.txt)
 OUTPUTS = $(SAMPLES:%=outputs/%-sample.txt) $(TESTDATA:%=outputs/%.txt)
 EXTRAS = $(TESTSUB:%=extras/%)
 
-all: validator checker solution $(OUTPUTS) $(EXTRAS)
+all: $(EXTRAS) validator checker solution $(OUTPUTS)
 
-solution: CXXFLAGS += -DN3
+# slower generation for more accurate results
+# -DkBlock=400 -DData='double' -DkFormat='"%.8lf"' is enough to get AC
+solution: CXXFLAGS += -DN3 -DkBlock=30 -DData='long double' -DkFormat='"%.10Lf"'
+extras/tle-1: CXXFLAGS += -DData='double' -DkFormat='"%.8lf"'
+extras/tle-2: CXXFLAGS += -DN3 -DkBlock=30 -DData='double' -DkFormat='"%.8lf"'
+extras/ac-1: CXXFLAGS += -DN3 -DkBlock=400 -DData='double' -DkFormat='"%.8lf"'
 
-validator generator checker solution $(EXTRAS): %: %.cpp
+validator generator checker solution: %: %.cpp
+$(EXTRAS): %: solution.cpp
+	$(CXX) $(CXXFLAGS) -o $@ solution.cpp
 
 $(INPUTS): validator generator
 inputs/01.txt:
