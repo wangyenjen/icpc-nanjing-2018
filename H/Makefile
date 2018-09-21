@@ -9,6 +9,7 @@ GENERATORS += generators/swgen
 EXTRAS += extras/wa-1
 EXTRAS += extras/tle-1
 EXTRAS += extras/tle-2
+EXTRAS += extras/tle-3
 
 INPUTS += inputs/03.txt
 INPUTS += inputs/04.txt
@@ -43,7 +44,7 @@ inputs/06.txt: generators/swgen
 	generators/swgen "[01222]{100000}" > $@
 	./validator < $@
 inputs/07.txt: generators/swgen
-	generators/swgen "[11112]{66666}[22221]{33333}" > $@
+	generators/swgen "1{50000}0{25000}2{25000}" > $@
 	./validator < $@
 
 $(OUTPUTS): outputs/%: inputs/% solution

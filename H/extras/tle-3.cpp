@@ -47,12 +47,12 @@ int main() {
             // answer += 0, 1, or 2 (hard)
 
             auto get_a = [&] {
-                auto it0 = set[0].lower_bound(std::make_pair(c1[i], INT_MIN));
-                if (it0 != set[0].end() && it0->second >= c2[i])
-                    return 0;
-                auto it1 = set[1].lower_bound(std::make_pair(c1[i], INT_MIN));
-                if (it1 != set[1].end() && it1->second >= c2[i])
-                    return 1;
+                for (auto [x1, x2] : set[0])
+                    if (x1 >= c1[i] && x2 >= c2[i])
+                        return 0;
+                for (auto [x1, x2] : set[1])
+                    if (x1 >= c1[i] && x2 >= c2[i])
+                        return 1;
                 return 2;
             };
 

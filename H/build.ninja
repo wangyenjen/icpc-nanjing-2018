@@ -20,6 +20,7 @@ build generators/swgen: cxx generators/swgen.cpp
 build extras/wa-1: cxx extras/wa-1.cpp
 build extras/tle-1: cxx extras/tle-1.cpp
 build extras/tle-2: cxx extras/tle-2.cpp
+build extras/tle-3: cxx extras/tle-3.cpp
 
 build inputs/03.txt: py | validator
   cmd = "print(100000, '2' * 100000, sep='\n')"
@@ -30,7 +31,7 @@ build inputs/05.txt: swgen | generators/swgen validator
 build inputs/06.txt: swgen | generators/swgen validator
   args = "[01222]{100000}"
 build inputs/07.txt: swgen | generators/swgen validator
-  args = "[11112]{66666}[22221]{33333}"
+  args = "1{50000}0{25000}2{25000}"
 
 build outputs/01-sample.txt: solution inputs/01-sample.txt | ./solution
 build outputs/02-sample.txt: solution inputs/02-sample.txt | ./solution
