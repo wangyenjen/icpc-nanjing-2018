@@ -1,0 +1,41 @@
+cflags = -std=c++17 -Wall -Wextra -Werror -fsanitize=undefined $
+         -isystem ../include
+
+rule cxx
+  command = g++ $cflags $in -o $out
+rule solution
+  command = ./solution < $in > $out
+rule swgen
+  command = generators/swgen $args > $out && ./validator < $out
+rule py
+  command = python3 -c $cmd > $out && ./validator < $out
+
+build validator: cxx validator.cpp
+
+build solution: cxx solution.cpp
+  cflags = $cflags -O2
+
+build generators/swgen: cxx generators/swgen.cpp
+
+build extras/wa-1: cxx extras/wa-1.cpp
+build extras/tle-1: cxx extras/tle-1.cpp
+build extras/tle-2: cxx extras/tle-2.cpp
+
+build inputs/03.txt: py | validator
+  cmd = "print(100000, '2' * 100000, sep='\n')"
+build inputs/04.txt: py | validator
+  cmd = "print(99996, '110202' * 16666, sep='\n')"
+build inputs/05.txt: swgen | generators/swgen validator
+  args = "[012]{100000}"
+build inputs/06.txt: swgen | generators/swgen validator
+  args = "[01222]{100000}"
+build inputs/07.txt: swgen | generators/swgen validator
+  args = "[11112]{66666}[22221]{33333}"
+
+build outputs/01-sample.txt: solution inputs/01-sample.txt | ./solution
+build outputs/02-sample.txt: solution inputs/02-sample.txt | ./solution
+build outputs/03.txt: solution inputs/03.txt | ./solution
+build outputs/04.txt: solution inputs/04.txt | ./solution
+build outputs/05.txt: solution inputs/05.txt | ./solution
+build outputs/06.txt: solution inputs/06.txt | ./solution
+build outputs/07.txt: solution inputs/07.txt | ./solution
