@@ -1,4 +1,4 @@
-#include "testlib.h"
+#include <testlib.h>
 #include <cstring>
 
 bool G[403][403];
