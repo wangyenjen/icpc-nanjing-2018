@@ -1,0 +1,15 @@
+cflags = -std=c++17 -Wall -Wextra -Werror -fsanitize=undefined $
+         -isystem ../include
+
+rule cxx
+  command = g++ $cflags $in -o $out
+rule solution
+  command = ./solution < $in > $out
+
+build validator: cxx validator.cpp
+
+build solution: cxx solution.cpp
+  cflags = $cflags -O2
+
+build outputs/01-sample.txt: solution inputs/01-sample.txt | ./solution
+build outputs/02-sample.txt: solution inputs/02-sample.txt | ./solution

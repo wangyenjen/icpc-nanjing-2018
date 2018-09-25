@@ -1,0 +1,38 @@
+Mediocre String Problem
+=======================
+Given string $s$ and $t$.
+Counting how many tuples $i, j, k$ such that
+1. $1 \le i \le j \le |s|$
+2. $1 \le k \le |t|$.
+3. $j - i + 1 > k$.
+4. The $i$-th character of $s$ to the $j$-th character of $s$,
+   concatenated with the first character of $t$ to the $k$-th character of $t$,
+   is a palindrome.
+
+Input
+-----
+The first line is string $s$ ($2 \le |s| \le 10^6$).
+The second line is string $t$ ($1 \le |t| < |s|$).
+Both $s$ and $t$ contains only lower case Latin letters.
+
+Output
+------
+The number of such tuples.
+
+Sample Input 1
+--------------
+ababa
+aba
+
+Sample Output 1
+---------------
+5
+
+Sample Input 2
+--------------
+aabbaa
+aabb
+
+Sample Output 2
+---------------
+7
