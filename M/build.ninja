@@ -5,11 +5,52 @@ rule cxx
   command = g++ $cflags $in -o $out
 rule solution
   command = ./solution < $in > $out
+rule sgen
+  command = generators/sgen $args > $out && ./validator < $out
+rule ctz
+  command = generators/ctz $args > $out && ./validator < $out
 
 build validator: cxx validator.cpp
 
 build solution: cxx solution.cpp
   cflags = $cflags -O2
 
+build generators/sgen: cxx generators/sgen.cpp
+build generators/ctz: cxx generators/ctz.cpp
+
+build inputs/03.txt: sgen | generators/sgen ./validator
+  args = 1000000 999999 a 1
+build inputs/04.txt: sgen | generators/sgen ./validator
+  args =  999999 999996 bcb 1
+build inputs/05.txt: sgen | generators/sgen ./validator
+  args =  999999 999996 deed 1
+build inputs/06.txt: sgen | generators/sgen ./validator
+  args = 1000000 999999 f 1 g 1
+build inputs/07.txt: sgen | generators/sgen ./validator
+  args = 1000000 999999 h 100 i 1
+build inputs/08.txt: sgen | generators/sgen ./validator
+  args = 1000000 999999 j 10000 k 1
+build inputs/09.txt: sgen | generators/sgen ./validator
+  args = 1000000 999999 a 1 b 1 c 1 d 1 e 1 f 1 g 1 h 1 $
+                        i 1 j 1 k 1 l 1 m 1 n 1 o 1 p 1 $
+                        q 1 r 1 s 1 t 1 u 1 v 1 w 1 x 1 $
+                        y 1 z 1
+build inputs/10.txt: sgen | generators/sgen ./validator
+  args = 1000000 999999 a 1 b 1 c 1 d 1 e 1 f 1 g 1 h 1 $
+                        i 1 j 1 k 1 l 1 m 1 n 1 o 1 p 1 $
+                        q 1 r 1 s 1 t 1 u 1 v 1 w 1 x 1 $
+                        y 10000 z 1
+build inputs/11.txt: ctz | generators/ctz ./validator
+  args = 1000000 999999 1 1
+
 build outputs/01-sample.txt: solution inputs/01-sample.txt | ./solution
 build outputs/02-sample.txt: solution inputs/02-sample.txt | ./solution
+build outputs/03.txt: solution inputs/03.txt | ./solution
+build outputs/04.txt: solution inputs/04.txt | ./solution
+build outputs/05.txt: solution inputs/05.txt | ./solution
+build outputs/06.txt: solution inputs/06.txt | ./solution
+build outputs/07.txt: solution inputs/07.txt | ./solution
+build outputs/08.txt: solution inputs/08.txt | ./solution
+build outputs/09.txt: solution inputs/09.txt | ./solution
+build outputs/10.txt: solution inputs/10.txt | ./solution
+build outputs/11.txt: solution inputs/11.txt | ./solution

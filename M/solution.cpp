@@ -28,8 +28,8 @@ void manacher(char *s, int n, int *z) {
 }
 
 char s[maxn + 1], t[maxn];
-char b[maxn * 2 + 1];
-int z[maxn * 2];
+char b[maxn * 2 + 2];
+int z[maxn * 2 + 1];
 long cz[maxn + 1];
 
 int main() {
