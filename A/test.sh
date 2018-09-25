@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 tmpfile=$(mktemp)
-TL=2
+TL=1
 for exe in extras/*; do
   test -x "$exe" || continue
   echo -n "Testing $exe: "
