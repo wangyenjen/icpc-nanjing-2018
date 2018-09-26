@@ -1,19 +1,54 @@
-
+Frank
 ====================
-TODO: validator (strongly connected), description, solution, more subtasks
+Frank likes to travel. However, he doesn't prefer a fully-planned trip. Instead, he enjoys traveling from one city to another randomly.
+
+Frank's favorite country is Country Meow because the roads in the country are complicated.
+
+Country Meow has $N$ cities, indexed with numbers from $0$ to $N-1$, and there are $M$ unidirectional roads. The i-th road can be denoted by $(a_i, b_i)$, which means it starts from city $a_i$ and ends in city $b_i$, and does not pass through any other cities. Interestingly, there may be roads with $a_i=b_i$, or several roads with the same starting and ending cities. The roads are built in a way such that for any two cities $A$ and $B$, one can travel from $A$ to $B$ through these roads.
+
+Frank is planning $Q$ trips to Country Meow. Each plan is an ordered list of cities $C=(c_0, c_1, \cdots, c_{K-1})$ such that $c_i\neq c_{i+1}$ for all $0\leq i \leq N-2$.
+
+On a trip with a plan $C$, Frank will:
+1. Go to city $c_0$.
+2. Choose a road uniformly at random from all roads whose starting city is Frank's current city.
+3. Follow the chosen road to the next city.
+4. If $C$ is a subsequence of the current visited cities sequence, then the trip is finished. Otherwise, go to step 2.
+
+However, each road requires a toll of 1 dollar. Frank wants to know the expected value of the total amount of fees he spent on each trip. Can you help him?
+
 
 Input
 -----
+The first line contains three positive integers $N,M,Q$ ($3\leq N\leq 400, M\leq 4\times 10^ 5, Q\leq 400$).
+
+The following $M$ lines describe the roads in the Country Meow. Each of them contains two integers $a_i, b_i$ ($0\leq a_i,b_i<N$) — the starting and ending cities of the i-th road.
+
+The following $2Q$ lines describe the plans Frank made.
+Each 2 lines describe a plan. The first contains an integer $K$ ($1\leq K\leq 500$) — the length of the city list; the second contains $K$ integers $c_0, c_1,\cdots, c_{K-1}$ ($0\leq c_i<N, c_i\neq c_{i+1}$) — the city list in the plan.
 
 
 Output
 ------
+For each plan, print a single real number in one line — the expected value of the total amount of fees on the corresponding trip. Your answers will be considered correct if their absolute or relative error does not exceed $10^ {-8}$.
 
 
 Sample Input 1
 --------------
+3 4 3
+0 1
+1 2
+2 0
+2 1
+2
+1 0
+4
+0 2 0 1
+3
+2 1 2
 
 
 Sample Output 1
 ---------------
-
+4.00000000
+6.00000000
+2.50000000
