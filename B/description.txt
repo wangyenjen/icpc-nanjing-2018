@@ -1,18 +1,34 @@
-
+Tournament
 ====================
+There are $N$ villagers (including the village chief) living in Number Village. Interestingly, all of their houses lie on a straight line. The house of the $i$-th villager lies exactly $a_i$ kilometers to the east of the village chief's house. (For simplicity, the 0-th villager is the village chief, so $a_0=0$.)
+
+Recently, a tournament is going to be held in Number Village, in which everyone in the village will participate.
+
+For the convenience of villagers, the organizer plans to build $K$ stadiums. The stadium can be built anywhere in the village, even at the same place as any villager's house.
+
+However, the organizer wants the traffic cost to be minimized. The traffic cost is defined by $\sum^{N-1}_{i=0} \min^{K-1}_{j=0} D(a_i, s_j)$, where $D(a_i, s_j)$ is the distance between the i-th villager's house and the j-th stadium.
+
+Your task is to calculate the minimal traffic cost (rounded down to the nearest integer), given $N, K$ and $a_i$.
+
 
 Input
 -----
+The first line contains two positive integers $N,K$ ($K\leq N\leq 3\times 10^ 5$).
+
+The second line contains $N$ non-negative integers $a_0,a_1,\cdots,a_{N-1}$ ($0=a_0<a_1<\cdots<a_{N-1}\leq 10^ 9$).
 
 
 Output
 ------
+Print a single integer — the minimal traffic cost rounded down to the nearest integer.
 
 
 Sample Input 1
 --------------
+5 2
+0 4 7 9 10
 
 
 Sample Output 1
 ---------------
-
+7
