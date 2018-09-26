@@ -41,7 +41,7 @@ OUTPUTS += outputs/15.txt
 OUTPUTS += outputs/16.txt
 OUTPUTS += outputs/17.txt
 
-all: validator solution wa1 wa2 $(INPUTS) $(OUTPUTS)
+all: validator solution wa1 wa2 wa3 $(INPUTS) $(OUTPUTS)
 
 validator: validator.cpp
 
@@ -49,6 +49,7 @@ solution: CXXFLAGS += -O2
 solution: solution.cpp
 wa1: wa1.cpp
 wa2: wa2.cpp
+wa3: wa3.cpp
 
 $(GENERATORS): %: %.cpp
 
@@ -94,4 +95,4 @@ $(OUTPUTS): outputs/% : inputs/% solution
 	./solution < $< > $@
 
 clean:
-	$(RM) validator solution wa1 wa2 $(GENERATORS) $(INPUTS) $(OUTPUTS)
+	$(RM) validator solution wa1 wa2 wa3 $(GENERATORS) $(INPUTS) $(OUTPUTS)
