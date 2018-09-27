@@ -19,7 +19,7 @@ The following $N$ lines describe the i-th city located.Each line contains three 
 Output
 ------
 Print a real number - the minimum Euclidean distance between the combatant command and the farthest city.
-The answer is considered as correct if its absolute of relative error doesn't exceed $10^3$.
+The answer is considered as correct if its absolute of relative error doesn't exceed $10^{-3}$.
 
 
 
