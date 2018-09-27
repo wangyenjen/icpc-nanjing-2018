@@ -1,18 +1,51 @@
-
+Lagrange the Chef
 ====================
+Lagrange is a chef. He has developed several theories related to food.
+
+In those theories, the most famous one is called Compatible Theory. Specifically, Lagrange has invented $10^6$ different dishes. However, one pair of dishes, namely $X$ and $Y$, when tasted one after another (regardless of order), would have a negative impact on the dining experience. Lagrange called the pairs of dishes "incompatible".
+
+The concept of "compatible" can also be extended to a full meal. A meal, consisting of several dishes served in a specific order, is compatible if no two dishes served consecutively are incompatible.
+
+One day, a guest requests a meal consists of $N$ dishes $a_0, a_1,\cdots,a_{N-1}$ to be served in order. Since the guest didn't know Compatible Theory, the requested meal can be incompatible.
+
+Lagrange wants to adjust the order of dishes to make the meal compatible while keeping the adjusted list not differ a lot from the original one. Hence, he defines an "adjusting step" as moving a dish in the list to any other position.
+
+Your job is to calculate the minimum number of adjusting step required to make the meal compatible, or determine that this is impossible.
+
+
 
 Input
 -----
+The first line contains three positive integers $N, X, Y$.
+
+The second line cantains $N$ positive integers,  $a_0, a_1,\cdots,a_{N-1}$ ($1 \le a_i \le 10^6$).
 
 
 Output
 ------
+If it is not possible to make the meal compatible, print "Impossible". You should not print the quotation marks.
+
+Otherwise, print a integer - the minimum number of adjusting step required to make the meal compatible.
+
+
 
 
 Sample Input 1
 --------------
-
+3 1 2
+1 2 3
 
 Sample Output 1
 ---------------
+1
 
+
+
+Sample Input 2
+--------------
+3 1 2
+1 2 2
+
+Sample Output 2
+---------------
+-1
