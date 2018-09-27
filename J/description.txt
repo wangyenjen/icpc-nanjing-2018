@@ -1,42 +1,37 @@
-Easy Problem
+Prime Game
 ============
 
-Given a graph, decide if the graph is a tree.
+Given a suqence of $n$ integers $a_i$.
+
+Let $mul(l, r) = \prod_{i = l}^{r} a_i$ and $fac(l, r) $ be the number of prime factors of $mul(l, r)$.
+
+Please calculate $\sum_{i = 1}^{n}\sum_{j = i}^{n}fac(i, j)$
 
 Input
 -----
-The first line contains two integers,
-$n$ and $m$ ($1 \le n, m, \le 10^6$) ---
-the number of vertices and the number of edges.
+The first line contains one integers $n$ ($1 \le n \le 10^6$) --- the length of the sequence.
 
-Each of the next $m$ lines contains two integers $a_i$ and $b_i$,
-($1 \le a_i, b_i \le n$),
-meaning edge $i$ connects vertex $a_i$ and vertex $b_i$.
+The second line contains $n$ integers  $a_i, 1 \le i \le n, 1 \le a_i \le 10^6$ --- the sequence.
 
 Output
 ------
-`"Yes"` (without the quotes) if the number is a tree;
-`"No"` otherwise.
+Print the answer to the equation.
 
 Sample Input 1
 --------------
-4 3
-1 2
-2 3
-2 4
+10
+99 62 10 47 53 9 83 33 15 24
 
 Sample Output 1
 ---------------
-Yes
+248
 
 Sample Input 2
 --------------
-4 4
-1 2
-1 2
-3 4
-3 4
+10
+6 7 5 5 4 9 9 1 8 12
+
 
 Sample Output 2
 ---------------
-No
+134

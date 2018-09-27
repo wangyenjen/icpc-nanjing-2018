@@ -1,50 +1,62 @@
 /**
- * A graph is a tree if and only if
- * 1. m == n - 1, and
- * 2. it is connected.
+ * For each prime calculate the number of interval that contain it.
  */
-#include <algorithm>
-#include <cstdio>
-#include <cassert>
-#include <vector>
+#include<bits/stdc++.h>
+using namespace std;
 
-constexpr int maxn = 1'000'000;
+typedef long long int LL;
 
-std::vector<int> adj[maxn];
-bool visited[maxn];
+const int N = 1000005;
 
-void dfs(int u) {
-    visited[u] = true;
-    for (int v : adj[u])
-        if (!visited[v])
-            dfs(v);
-}
-
-bool check(int n, int m) {
-    if (m != n - 1)
-        return false;
-    dfs(0);
-    return std::find(visited, visited + n, false) == visited + n;
-}
+int is[N];
+vector<int> pri;
+vector<int> pos[N];
+int fac[N];
 
 int main() {
-    int n, m;
-
-    int ret = scanf("%d%d", &n, &m);
-    assert(ret == 2);
-    assert(1 <= n && n <= maxn);
-    assert(1 <= m && m <= maxn);
-
-    for (int i = 0; i < m; i++) {
-        int u, v;
-        int ret = scanf("%d%d", &u, &v);
-        assert(ret == 2);
-        assert(1 <= u && u <= n);
-        assert(1 <= v && v <= n);
-        u--, v--;
-        adj[u].push_back(v);
-        adj[v].push_back(u);
+    for (int i = 2; i < N; i++) {
+        if (is[i]) continue;
+        pri.push_back(i);
+        for (int j = i; j < N; j += i) {
+            fac[j] = i;
+            is[j] = 1;
+        }
+    }
+    int n;
+    int ret = scanf("%d", &n);
+    assert(ret == 1);
+    vector<int> arr;
+    arr.push_back(0);
+    for (int i = 1; i <= n; i++) {
+        int x;
+        int ret = scanf("%d", &x);
+        assert(ret == 1);
+        arr.push_back(x);
     }
 
-    puts(check(n, m) ? "Yes" : "No");
+
+    for (int x: pri)
+        pos[x].push_back(0);
+    set<int> bst;
+    for (int i = 1; i <= n; i++) {
+        int k = arr[i];
+        while (k > 1) {
+            int tmp = fac[k];
+            bst.insert(tmp);
+            pos[tmp].push_back(i);
+            while (k % tmp == 0) k /= fac[k];
+        }
+    }
+    for (int x: pri)
+        pos[x].push_back(n + 1);
+
+    LL ans = 1LL * n * (n + 1) / 2 * bst.size();
+    for (int x: bst) {
+        for (int i = 1; i < (int) pos[x].size(); i++) {
+            int len = pos[x][i] - pos[x][i - 1] - 1;
+            ans -= 1LL * len * (len + 1) / 2;
+        }
+    }
+
+    printf("%lld\n", ans);
 }
