@@ -1,18 +1,42 @@
-
+Adrien and Austin
 ====================
+Adrien and Austin are playing a game with rocks.
+
+Initially, there are $N$ rocks, indexed from $1$ to $N$. In one move, the player chooses at least $1$ and at most $K$ consecutively indexed rocks (all of them should not have been removed) and removes them from the game.
+
+Adrien always starts the game, and then Adrien and Austin take turns making moves. The player who is unable to make a move (because all rocks are removed) loses.
+
+Given $N, K$, find who is going to win the game (assuming they are smart and are playing optimally).
+
+
 
 Input
 -----
+The first line contains two integers $N, K$ ($0 \le N \le 10^6, 1 \le K \le 10^6$).
 
 
 Output
 ------
+Print a name("Adrien" or "Austin") - the person who is going to win the game.
+
+
 
 
 Sample Input 1
 --------------
-
+1 1
 
 Sample Output 1
 ---------------
+Adrien
+
+
+
+Sample Input 2
+--------------
+9 3
+
+Sample Output 2
+---------------
+Adrien
 
