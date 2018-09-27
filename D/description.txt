@@ -1,18 +1,53 @@
-
+Country Meow
 ====================
+In the 24th century, there is a country somewhere in the universe, namely Country Meow. Due to advanced technology, people can easily travel in the 3-dimensional space.
+
+There are $N$ cities in Country Meow. The i-th city is located at $(x_i,y_i,z_i)$ in Cartesian coordinate.
+
+Due to the increasing threat from Country Woof, the president decided to build a new combatant command, so that troops in different cities can easily communicate. Hence, the Euclidean distance between the combatant command and any city should be minimized.
+
+Your task is to calculate the minimum Euclidean distance between the combatant command and the farthest city.
+
+
 
 Input
 -----
+The first line contains an integer $N$.
 
+The following $N$ lines describe the i-th city located.Each line contains three integers $x_i, y_i, z_i$ ($-100000 \le x_i, y_i, z_i \le 100000$).
 
 Output
 ------
+Print a real number - the minimum Euclidean distance between the combatant command and the farthest city.
+The answer is considered as correct if its absolute of relative error doesn't exceed $10^3$.
+
+
 
 
 Sample Input 1
 --------------
+3
+0 0 0
+3 0 0
+0 4 0
 
 
 Sample Output 1
 ---------------
+2.5000000000
+
+
+
+Sample Input 2
+--------------
+4
+0 0 0
+1 0 0
+0 1 0
+0 0 1
+
+
+Sample Output 2
+---------------
+1.0000000000
 
