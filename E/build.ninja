@@ -1,0 +1,78 @@
+cflags = -std=c++17 -Wall -Wextra -Werror -fsanitize=undefined $
+         -isystem ../include
+
+rule cxx
+  command = g++ $cflags $in -o $out
+rule solution
+  command = ./solution < $in > $out
+rule sgen
+  command = generators/sgen $args > $out && ./validator < $out
+rule genyes
+  command = generators/genyes $args > $out && ./validator < $out
+rule genno
+  command = generators/genno $args > $out && ./validator < $out
+rule python
+  command = python3 -c $cmd > $out && ./validator < $out
+
+build validator: cxx validator.cpp
+
+build solution: cxx solution.cpp
+  cflags = $cflags -O2
+
+build generators/sgen: cxx generators/sgen.cpp
+build generators/genyes: cxx generators/genyes.cpp
+build generators/genno: cxx generators/genno.cpp
+
+build inputs/05.txt: sgen | generators/sgen ./validator
+  args = 1000000 1
+build inputs/06.txt: sgen | generators/sgen ./validator
+  args = 1000000 2
+build inputs/07.txt: genyes | generators/genyes ./validator
+  args = 1000000 3 10000 100000
+build inputs/08.txt: genyes | generators/genyes ./validator
+  args = 1000000 4 990000 100000
+build inputs/09.txt: genyes | generators/genyes ./validator
+  args = 1000000 10 10000 100000
+build inputs/10.txt: genyes | generators/genyes ./validator
+  args = 1000000 20 990000 100000
+build inputs/11.txt: genyes | generators/genyes ./validator
+  args = 1000000 100 999000 10000
+build inputs/12.txt: genyes | generators/genyes ./validator
+  args = 1000000 200 0 10000
+build inputs/13.txt: python | ./validator
+  cmd = "print(10**6, 10**6); print('1' * 10**6); print('0' * 10**6)"
+build inputs/14.txt: python | ./validator
+  cmd = "print(10**6, 10**6-1); print('1' * 10**6); print('0' * 10**6)"
+build inputs/15.txt: genno | generators/genno ./validator
+  args = 1000000 3 10000 100000
+build inputs/16.txt: genno | generators/genno ./validator
+  args = 1000000 4 990000 100000
+build inputs/17.txt: genno | generators/genno ./validator
+  args = 1000000 10 10000 100000
+build inputs/18.txt: genno | generators/genno ./validator
+  args = 1000000 20 990000 100000
+build inputs/19.txt: genno | generators/genno ./validator
+  args = 1000000 100 999000 10000
+build inputs/20.txt: genno | generators/genno ./validator
+  args = 1000000 200 1 10000
+
+build outputs/01-sample.txt: solution inputs/01-sample.txt | ./solution
+build outputs/02-sample.txt: solution inputs/02-sample.txt | ./solution
+build outputs/03.txt: solution inputs/03.txt | ./solution
+build outputs/04.txt: solution inputs/04.txt | ./solution
+build outputs/05.txt: solution inputs/05.txt | ./solution
+build outputs/06.txt: solution inputs/06.txt | ./solution
+build outputs/07.txt: solution inputs/07.txt | ./solution
+build outputs/08.txt: solution inputs/08.txt | ./solution
+build outputs/09.txt: solution inputs/09.txt | ./solution
+build outputs/10.txt: solution inputs/10.txt | ./solution
+build outputs/11.txt: solution inputs/11.txt | ./solution
+build outputs/12.txt: solution inputs/12.txt | ./solution
+build outputs/13.txt: solution inputs/13.txt | ./solution
+build outputs/14.txt: solution inputs/14.txt | ./solution
+build outputs/15.txt: solution inputs/15.txt | ./solution
+build outputs/16.txt: solution inputs/16.txt | ./solution
+build outputs/17.txt: solution inputs/17.txt | ./solution
+build outputs/18.txt: solution inputs/18.txt | ./solution
+build outputs/19.txt: solution inputs/19.txt | ./solution
+build outputs/20.txt: solution inputs/20.txt | ./solution
