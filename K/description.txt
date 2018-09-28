@@ -1,0 +1,61 @@
+Kangaroo Puzzle
+===============
+Your friend, Kevin, just made a computer video game called "Kangaroo Puzzle" and want you to give it a try for him.
+As the name of this game indicates,
+there are some kangaroos stranded in a puzzle and the player's goal is to control them to gather.
+As long as all the kangaroos in the puzzle get together, they can escape the puzzle by the miraculous power of kangaroos.
+
+The puzzle is a $n \times m$ grid consisting of $nm$ cells.
+There are walls in some cells and the kangaroos cannot enter these cells.
+The other cells are empty.
+The kangaroos can move in the following direction: up, down, left and right.
+It is guaranteed that one kangaroo can move from any empty cell to any other.
+It is also guaranteed that there is no cycle in the puzzle ---
+that is, it's impossible that one kangaroo can move from an empty cell,
+pass by several distinct empty cells,
+and then back to the original cell.
+
+There is a kangaroo in every empty cell at the beginning.
+You can control the kangaroos by pressing the button 'U', 'D', 'L', 'R' on your keyboard.
+The kangaroos will move simutaneously according to the button you press.
+For instance, if you press the button 'U', a kangaroos would move to the upper cell if it exists and is empty;
+otherwise, the kangaroo will stay still.
+You can press the buttons for at most $50000$ times.
+If there are still two kangaroos standing in different cells after $50000$ steps, you will lose the game.
+
+Input
+-----
+The first line contains two integers, $n$ and $m$ ($1 \leq n,m \leq 20$), the height and the width of the puzzle, repectively.
+Each of the next $n$ lines contains a $(0,1)$-string of length $m$, representing the puzzle.
+If the $j$-th character of the $i+1$ line is `1`,
+then the cell at the $i$-th row and the $j$-th column is empty;
+otherwise (i.e. it is `0`), the corresponding cell is blocked and cannot be entered.
+
+Output
+------
+Print a string consisting of `U`, `D`, `L`, `R`,
+such that all kangaroos will get together after pressing the buttons in the order of this string.
+The length of the string should not exceed $50000$.
+There are many possible valid answers, so just print any of them.
+
+Sample Input 1
+--------------
+4 4
+1111
+1001
+1001
+1110
+
+Sample Output 1
+---------------
+LLUUURRRDD
+
+Sample Input 2
+--------------
+2 15
+111111111111111
+101010101010101
+
+Sample Output 2
+---------------
+ULLLLLLLLLLLLLL
