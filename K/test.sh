@@ -17,10 +17,10 @@ for exe in extras/*; do
       fi
       continue 2
     fi
-    cmp -s $(./ checker "$tmpfile") "AC" 2> /dev/null || {
+    if ! [ $(./checker "$input" "$tmpfile") == "AC" ]; then
       echo "WA on $input"
       continue 2
-    }
+    fi
   done
   echo "AC"
 done
