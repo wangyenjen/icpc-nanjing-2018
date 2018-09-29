@@ -22,7 +22,7 @@ int func(int i, int j, const std::string &str) {
             break;
         case 'D':
             if (i + 1 < n && board[i + 1][j])
-                i--;
+                i++;
             break;
         case 'L':
             if (j > 0 && board[i][j - 1])
@@ -46,7 +46,7 @@ void make() {
 
     while (x != y) {
         std::string a;
-        a[0] = step[x][y];
+        a += step[x][y];
         x = func(x / m, x % m, a);
         y = func(y / m, y % m, a);
         ans1 = ans1 + a;
@@ -114,3 +114,4 @@ int main() {
 
     std::cout << ans << "\n";
 }
+
