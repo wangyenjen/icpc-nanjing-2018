@@ -39,9 +39,9 @@ int main(int argc, char **argv) {
 	
     freopen(argv[1], "r", stdin);
 
-	int n = inf.readInt(1, 20, "n");
+    n = inf.readInt(1, 20, "n");
     inf.readSpace();
-    int m = inf.readInt(1, 20, "m");
+    m = inf.readInt(1, 20, "m");
     inf.readEoln();
  
     for (int i = 0; i < n; i++) {
@@ -53,19 +53,16 @@ int main(int argc, char **argv) {
         inf.readEoln();
     }
 
-    // inf.readEof();
+    inf.readEof();
+
+    fclose(stdin);
 
     freopen(argv[2], "r", stdin);
 
     std::string ans;
     ans = inf.readString();
-    inf.readEoln();
+    //  inf.readEoln();
     inf.readEof();
-
-    if ((int)ans.size() > maxans) {
-        puts("WA");
-        return 0;
-    }
 
     int cnt = -1;
     bool flag = 1;
@@ -84,7 +81,7 @@ int main(int argc, char **argv) {
                 else if (func(i, j, ans) != cnt)
                     flag = 0;
             }
-
+    
     std::cout << (flag ? "AC\n" : "WA\n");
 }
 
