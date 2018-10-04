@@ -1,5 +1,7 @@
 #include <cstdio>
 #include <cstring>
+#include <cstdint>
+#include <cinttypes>
 #include <algorithm>
 
 constexpr int maxn = 1'000'000;
@@ -30,7 +32,7 @@ void manacher(char *s, int n, int *z) {
 char s[maxn + 1], t[maxn];
 char b[maxn * 2 + 2];
 int z[maxn * 2 + 1];
-long cz[maxn + 1];
+int64_t cz[maxn + 1];
 
 int main() {
     scanf("%s%s", s, t);
@@ -55,8 +57,8 @@ int main() {
     b[2 * n + 1] = '\0';
     manacher(b, 2 * n + 1, z);
 
-    long ans = 0;
+    int64_t ans = 0;
     for (int i = 0; i < 2 * n + 1; i++)
         ans += cz[(i + 1) / 2] - cz[(i - z[i] + 1) / 2];
-    printf("%ld\n", ans);
+    printf("%" PRId64 "\n", ans);
 }
