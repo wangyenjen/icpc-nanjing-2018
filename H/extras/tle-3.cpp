@@ -35,6 +35,20 @@ int main() {
     std::set<std::pair<int, int>> set[2];
 
     for (int i = 1; i <= n; i++) {
+        if (i % 2 == 1 && c1[i - 1] <= 0 && c2[i - 1] <= 0 && s[i - 1] < '2') {
+            int t = s[i - 1] - '0'; // t == 0 || t == 1
+            // add (c1[i], c2[i]) to set[t]
+            auto it = set[t].emplace(c1[i], c2[i]).first;
+            if (std::next(it) != set[t].end() &&
+                    std::next(it)->second >= it->second) {
+                set[t].erase(it);
+            } else {
+                while (it != set[t].begin() &&
+                       std::prev(it)->second <= it->second)
+                    set[t].erase(std::prev(it));
+            }
+        }
+
         if (c1[i] >= 0) {
             // answer += 111...1
             ans[0] += 1;
@@ -60,20 +74,6 @@ int main() {
 
             ans[0] += a;
             ans[1] -= a;
-        }
-
-        if (i < n && i % 2 == 0 && c1[i] <= 0 && c2[i] <= 0 && s[i] < '2') {
-            int t = s[i] - '0'; // t == 0 || t == 1
-            // add (c1[i + 1], c2[i + 1]) to set[t]
-            auto it = set[t].emplace(c1[i + 1], c2[i + 1]).first;
-            if (std::next(it) != set[t].end() &&
-                    std::next(it)->second >= it->second) {
-                set[t].erase(it);
-            } else {
-                while (it != set[t].begin() &&
-                       std::prev(it)->second <= it->second)
-                    set[t].erase(std::prev(it));
-            }
         }
     }
 
