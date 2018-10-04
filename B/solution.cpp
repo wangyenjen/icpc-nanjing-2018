@@ -5,7 +5,7 @@ const int MN = 300003;
 
 using Data = long long;
 
-long long sum[MN];
+Data sum[MN];
 struct Node { Data v; int a; } dp[MN];
 struct Range { int l, p; } rg[MN];
 
@@ -48,9 +48,9 @@ int main() {
   for (int i = 1; i <= N; i++) sum[i] += sum[i - 1];
 
   Node l;
-  Data mx = -1, L = 0, R = sum[N] + 1;
+  Data mx = -1, L = 0, R = sum[N] + 2;
   while (L + 1 < R) {
-    long long M = (L + R) / 2;
+    Data M = (L + R) / 2;
     Node res = Cal(M - 1, N);
     if (res.a > K) {
       L = M;
