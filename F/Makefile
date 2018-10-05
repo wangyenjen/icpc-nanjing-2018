@@ -5,24 +5,27 @@ CXXFLAGS = -std=c++14 -Wall -O2 -I../include
 
 SAMPLES = 00
 TESTDATA = 01 02 03 04 05 06 07 08 09 10 11 12
-TESTSUB = tle-1 tle-2 ac-1
+TESTSUB = tle-1 tle-2
 
 INPUTS = $(TESTDATA:%=inputs/%.txt)
 OUTPUTS = $(SAMPLES:%=outputs/%-sample.txt) $(TESTDATA:%=outputs/%.txt)
 EXTRAS = $(TESTSUB:%=extras/%)
 
-all: $(EXTRAS) validator checker solution $(OUTPUTS)
+all: $(EXTRAS) validator checker solution answer_generator $(OUTPUTS)
 
 # slower generation for more accurate results
 # -DkBlock=400 -DData='double' -DkFormat='"%.8lf"' is enough to get AC
-solution: CXXFLAGS += -DN3 -DkBlock=30 -DData='long double' -DkFormat='"%.10Lf"'
+solution: CXXFLAGS += -DN3 -DkBlock=400 -DData='double' -DkFormat='"%.8lf"'
+answer_generator: CXXFLAGS += -DN3 -DkBlock=30 -DData='long double' -DkFormat='"%.10Lf"'
 extras/tle-1: CXXFLAGS += -DData='double' -DkFormat='"%.8lf"'
 extras/tle-2: CXXFLAGS += -DN3 -DkBlock=30 -DData='double' -DkFormat='"%.8lf"'
-extras/ac-1: CXXFLAGS += -DN3 -DkBlock=400 -DData='double' -DkFormat='"%.8lf"'
 
 validator generator checker solution: %: %.cpp
+answer_generator: solution.cpp
+	$(CXX) $(CXXFLAGS) -o $@ $<
 $(EXTRAS): %: solution.cpp
-	$(CXX) $(CXXFLAGS) -o $@ solution.cpp
+	@mkdir -p $(@D)
+	$(CXX) $(CXXFLAGS) -o $@ $<
 
 $(INPUTS): validator generator
 inputs/01.txt:
@@ -62,9 +65,10 @@ inputs/12.txt:
 	./generator 400 7 139 400 tree 30 random 15 6 loop 150 > $@
 	./validator < $@
 
-$(OUTPUTS): outputs/% : inputs/% solution
+$(OUTPUTS): outputs/% : inputs/% answer_generator
 	@mkdir -p $(@D)
-	./solution < $< > $@
+	./answer_generator < $< > $@
 
 clean:
-	$(RM) validator generator checker solution $(INPUTS) $(OUTPUTS) $(EXTRAS)
+	$(RM) validator generator checker solution answer_generator $(INPUTS) $(OUTPUTS) $(EXTRAS)
+	rmdir outputs extras
