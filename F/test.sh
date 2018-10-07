@@ -2,7 +2,7 @@
 
 tmpfile=$(mktemp)
 TL=2
-for exe in extras/*; do
+for exe in solution extras/*; do
   test -x "$exe" || continue
   echo -n "Testing $exe: "
   for input in inputs/*; do

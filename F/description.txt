@@ -6,13 +6,14 @@ Frank's favorite country is Country Meow because the roads in the country are co
 
 Country Meow has $N$ cities, indexed with numbers from $0$ to $N-1$, and there are $M$ unidirectional roads. The i-th road can be denoted by $(a_i, b_i)$, which means it starts from city $a_i$ and ends in city $b_i$, and does not pass through any other cities. Interestingly, there may be roads with $a_i=b_i$, or several roads with the same starting and ending cities. The roads are built in a way such that for any two cities $A$ and $B$, one can travel from $A$ to $B$ through these roads.
 
-Frank is planning $Q$ trips to Country Meow. Each plan is an ordered list of cities $C=(c_0, c_1, \cdots, c_{K-1})$ such that $c_i\neq c_{i+1}$ for all $0\leq i \leq N-2$.
+Frank is planning $Q$ trips to Country Meow. Each plan is an ordered list of cities $C=(c_0, c_1, \cdots, c_{K-1})$ such that $c_i\neq c_{i+1}$ for all $0\leq i \leq K-2$.
 
 On a trip with a plan $C$, Frank will:
 1. Go to city $c_0$.
 2. Choose a road uniformly at random from all roads whose starting city is Frank's current city.
 3. Follow the chosen road to the next city.
 4. If $C$ is a subsequence of the current visited cities sequence, then the trip is finished. Otherwise, go to step 2.
+(A sequence $A$ is a subsequence of another sequence $B$ if one can delete some or no elements from $B$ without changing the order and obtain $A$.)
 
 However, each road requires a toll of 1 dollar. Frank wants to know the expected value of the total amount of fees he spent on each trip. Can you help him?
 
@@ -29,7 +30,10 @@ Each 2 lines describe a plan. The first contains an integer $K$ ($1\leq K\leq 50
 
 Output
 ------
-For each plan, print a single real number in one line — the expected value of the total amount of fees on the corresponding trip. Your answers will be considered correct if their absolute or relative error does not exceed $10^ {-8}$.
+For each plan, print a single real number in one line — the expected value of the total amount of fees on the corresponding trip.
+
+Your answer will be considered correct if the absolute or relative error between each number in your output and the corresponding one in jury's answer does not exceed $10^ {-8}$.
+Formally, let your answer be $a$, and the jury's answer be $b$. Your answer is considered correct if $\frac{|a-b|}{\max(1,b)}\leq 10^ {-8}$.
 
 
 Sample Input 1
