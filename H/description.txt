@@ -12,7 +12,7 @@ Needless to say, each removal must be valid.
 
 For example, if the original price is $123$,
 one could pay $1$ dollar by removing $23$ or
-pay $3$ dollors by removing $12$.
+pay $3$ dollars by removing $12$.
 However, it's illegal to pay $2$ dollars because
 $1$ and $3$ are not adjacent.
 However, if the original price is $111$,
@@ -21,7 +21,7 @@ no removal can be performed as all digits are the same.
 There may be leading zeroes on the price tag.
 Also, leading zeroes may occur after some of such removals.
 In these cases, the leading zeroes are not removed automatically.
-Therefore, if the the price tag reads $0033$,
+Therefore, if the price tag reads $0033$,
 one can get it for free by removing $03$ twice.
 
 John found some of such convenience stores.
@@ -29,7 +29,7 @@ In these particular stores,
 there are some interesting properties on the prices.
 1. Only digits $0$, $1$ and $2$ are used.
 2. For every $i$,
-   if the first digit on the price tag of good $i$,
+   if the first digit on the price tag of good $i$ is removed,
    it becomes the price tag if good $i+1$.
 For example, if the price tag of good $1$ is $012$,
 the price tag of good $2$ is $12$ and
