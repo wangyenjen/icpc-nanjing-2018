@@ -2,12 +2,11 @@ Huge Discount
 =============
 John heard an urban legend from Dreamoon about
 convenience stores in Incredible Convenient Purchasing Country (ICPC).
-The original price of any goods there usually being as high as
-$10^{10^5}$.
+The original price of any goods there are usually as high as $10^{10^5}$.
 Of course, nobody is going to pay such a high price.
 Instead, one can remove any two consecutive distinct digits
 from the original price.
-One can perform such operation as many time as he want.
+One can perform such operation as many times as he wants.
 Needless to say, each removal must be valid.
 
 For example, if the original price is $123$,
