@@ -1,6 +1,6 @@
 Tournament
 ====================
-There are $N$ villagers (including the village chief) living in Number Village. Interestingly, all of their houses lie on a straight line. The house of the $i$-th villager lies exactly $a_i$ kilometers to the east of the village chief's house. (For simplicity, the 0-th villager is the village chief, so $a_0=0$.)
+There are $N$ villagers (including the village chief) living in Number Village. Interestingly, all of their houses lie on a straight line. The house of the $i$-th villager ($0\leq i<N$) lies exactly $a_i$ kilometers to the east of the village chief's house. (For simplicity, the 0-th villager is the village chief, so $a_0=0$.)
 
 Recently, a tournament is going to be held in Number Village, in which everyone in the village will participate.
 
