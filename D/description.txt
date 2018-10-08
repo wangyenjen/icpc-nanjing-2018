@@ -12,15 +12,15 @@ Your task is to calculate the minimum Euclidean distance between the combatant c
 
 Input
 -----
-The first line contains an integer $N$.
+The first line contains an integer $N$ ($1 \le N \le 100$).
 
 The following $N$ lines describe the i-th city located.Each line contains three integers $x_i, y_i, z_i$ ($-100000 \le x_i, y_i, z_i \le 100000$).
 
 Output
 ------
 Print a real number - the minimum Euclidean distance between the combatant command and the farthest city.
-The answer is considered as correct if its absolute of relative error doesn't exceed $10^{-3}$.
-
+The answer is considered as correct if its absolute or relative error doesn't exceed $10^{-3}$.
+Precisely speaking, assume that your answer is $a$ and and the jury's answer is $b$, your answer will be considered correct if $\frac{|a - b|}{\max\{1, |b|\}} \le 10^{-3}$, where $\max\{x, y\}$ means the maximum of $x$ and $y$ and $|x|$ means the absolute value of $x$.
 
 
 
@@ -49,5 +49,4 @@ Sample Input 2
 
 Sample Output 2
 ---------------
-1.0000000000
-
+0.8164984201
