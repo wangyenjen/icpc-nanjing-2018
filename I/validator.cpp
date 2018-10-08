@@ -11,7 +11,7 @@ int main(int argc, char **argv) {
     inf.readEoln();
 
     for (int i = 0; i < n; i++) {
-        int t = inf.readInt(0, m, "t");
+        int t = inf.readInt(1, m, "t");
         for (int j = 0; j < t; j++) {
             inf.readSpace();
             inf.readInt(1, m, "x");
