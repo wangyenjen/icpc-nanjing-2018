@@ -1,9 +1,10 @@
 Kangaroo Puzzle
 ===============
-Your friend, Kevin, just made a computer video game called "Kangaroo Puzzle" and want you to give it a try for him.
+Your friend has made a computer video game called "Kangaroo Puzzle" and wants you to give it a try for him.
 As the name of this game indicates,
 there are some (at least 2) kangaroos stranded in a puzzle and the player's goal is to control them to gather.
-As long as all the kangaroos in the puzzle get together, they can escape the puzzle by the miraculous power of kangaroos.
+As long as all the kangaroos in the puzzle get together,
+they can escape the puzzle by the miraculous power of kangaroos.
 
 The puzzle is a $n \times m$ grid consisting of $nm$ cells.
 There are walls in some cells and the kangaroos cannot enter these cells.
@@ -18,7 +19,7 @@ and then back to the original cell.
 There is exactly one kangaroo in every empty cell at the beginning.
 You can control the kangaroos by pressing the button 'U', 'D', 'L', 'R' on your keyboard.
 The kangaroos will move simultaneously according to the button you press.
-For instance, if you press the button 'U', a kangaroos would move to the upper cell if it exists and is empty;
+For instance, if you press the button 'U', a kangaroo would move to the upper cell if it exists and is empty;
 otherwise, the kangaroo will stay still.
 You can press the buttons for at most $50000$ times.
 If there are still two kangaroos standing in different cells after $50000$ steps, you will lose the game.
@@ -27,7 +28,7 @@ Input
 -----
 The first line contains two integers, $n$ and $m$ ($1 \leq n,m \leq 20$), the height and the width of the puzzle, respectively.
 Each of the next $n$ lines contains a $(0,1)$-string of length $m$, representing the puzzle.
-If the $j$-th character of the $i+1$ line is `1`,
+If the $j$-th character of the $i+1$-th line is `1`,
 then the cell at the $i$-th row and the $j$-th column is empty;
 otherwise (i.e. it is `0`), the corresponding cell is blocked and cannot be entered.
 
