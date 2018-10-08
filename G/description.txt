@@ -3,7 +3,9 @@ Pyramid
 
 The use of the triangle in the New Age practices seems to be very important as it represents the unholy trinity (Satan, the Antichrist and the False Prophet bringing mankind to the New World Order with false/distorted beliefs). The triangle is of primary importance in all Illuminati realms, whether in the ritual ceremonies of the Rosicrucians and Masons or the witchcraft, astrological and black magic practices of other Illuminati followers.
 
-One day you found out that a pyramid contains many regular triangles, which is very evil and unacceptable. You want to calculate the number of regular triangles in a big pyramid, so that you can estimate the strength of Illuminati.  
+One day you found out that a pyramid contains many regular triangles, which is very evil and unacceptable. You want to calculate the number of regular triangles in a big pyramid, so that you can estimate the strength of Illuminati. A pyramid with height equals to $n$ is combined with $\frac{n\cdot(n + 1)}{2}$small pyramids.
+
+It is not necessary that each side of regular triangles is parallel to one side of the pyramid. However, each vertice of the regular triangle should be on one side of a pyramid.
 
  ![pyramid](img/pyramid.png)
 
@@ -13,7 +15,7 @@ Input
 -----
 The first line contains an integer $t$ ($1 \le t \le 10^6$) --- the number of test cases.
 
-Each of the next $t$ lines contains an integers $n$ $(1 \le n \le 10^9$) --- the hight of the pyramid.
+Each of the next $t$ lines contains an integers $n$ $(1 \le n \le 10^9$) --- the height of the pyramid.
 
 Output
 ------

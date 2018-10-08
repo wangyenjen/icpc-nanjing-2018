@@ -7,7 +7,7 @@ int main(int argc, char **argv) {
     inf.readEoln();
 
     for (int i = 0; i < t; i++) {
-        inf.readLong(1, 1000000000000000000LL, "a_i");
+        inf.readLong(1, 1000000000LL, "a_i");
         inf.readEoln();
     }
     inf.readEof();
