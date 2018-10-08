@@ -5,7 +5,7 @@ CXXFLAGS = -std=c++14 -Wall -O2 -I../include
 
 SAMPLES = 00 01
 TESTDATA = 02 03 04 05 06 07 08 09 10 11 12 13 14 15
-TESTSUB = ac-1
+TESTSUB = ac-1 wa-1
 
 INPUTS = $(TESTDATA:%=inputs/%.txt)
 OUTPUTS = $(SAMPLES:%=outputs/%-sample.txt) $(TESTDATA:%=outputs/%.txt)
@@ -38,10 +38,10 @@ inputs/08.txt:
 	./generator 99999 123 > $@
 	./validator < $@
 inputs/09.txt:
-	./generator 98763 323 > $@
+	./generator 3886 7 > $@
 	./validator < $@
 inputs/10.txt:
-	./generator 82827 7 > $@
+	./generator 3884 7 > $@
 	./validator < $@
 inputs/11.txt:
 	./generator 8831 8829 > $@
