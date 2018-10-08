@@ -1,33 +1,33 @@
-Eddy and Euro coins
+Eva and Euro coins
 ===================
-Eddy is fond of collecting coins.
-Whenever he visit a different country,
-he always picks up as many local coins as he can.
-As you know, Eddy also likes to go trip to Europe;
-thus he has collected a large amount of Euro coins because so many countries in Europe use them.
+Eva is fond of collecting coins.
+Whenever she visits a different country,
+she always picks up as many local coins as she can.
+As you know, Eva also likes to go trips to Europe;
+thus she has collected a large amount of Euro coins because so many countries in Europe use them.
 
-Eddy has $n$ Euro coins in total.
-He places all his coins on a desk in a row and plays a game with the coins.
-In one step Eddy can choose exactly $k$ consecutive coins, heads of which all face up or all face down,
-and flip them at the same time.
-Eddy wonders that, in finite steps, what states of the coins can be reached from the original state.
+Eva has $n$ Euro coins in total.
+She places all her coins on a desk in a row and plays a game with the coins.
+In one step Eva can choose exactly $k$ consecutive coins and flips them at the same time,
+provided that all heads of these coins face up or all heads of these coins face down.
+She wonders that, in finite steps, what states of the coins can be reached from the original state.
 
 Input
 -----
 The first line contains two integers,
 $n$ and $k$ ($1 \leq k \leq n \leq 10^6$) ---
-the number of Euro coins Eddy owns and the number of consecutive coins Eddy can flip in one step.
-The second and third line each contains a string, $s$ and $t$, respectively ($|s| = |t| = n$).
+the number of Euro coins Eva owns and the number of consecutive coins Eva can flip in one step.
+The next two lines contain two strings, $s$ and $t$, respectively ($|s| = |t| = n$).
 $s$ and $t$ only contains the digits `0` and `1`.
 
 $s$ represents the initial state of the $n$ coins:
-if the head of the $i$-th coin face up, then the $i$-th character of $s$ is $1$;
-otherwise (i.e. the head of $i$-th coin face down), the $i$-th character of $s$ is $0$.
+if the head of the $i$-th coin faces up, then the $i$-th character of $s$ is $1$;
+otherwise (i.e. the head of $i$-th coin faces down), the $i$-th character of $s$ is $0$.
 $t$ represents the desired final state of the $n$ coins in the same way as $s$.
 
 Output
 ------
-If it is possible to reach the state represented by $t$ from the state represented by $s$ in finite steps,
+If it is possible for Eva to reach the state represented by $t$ from the state represented by $s$ in finite steps,
 output `"Yes"` (without the quotes); otherwise, output `"No"`.
 
 Sample Input 1
