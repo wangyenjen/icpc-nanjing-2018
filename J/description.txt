@@ -3,7 +3,7 @@ Prime Game
 
 Given a suqence of $n$ integers $a_i$.
 
-Let $mul(l, r) = \prod_{i = l}^{r} a_i$ and $fac(l, r) $ be the number of prime factors of $mul(l, r)$.
+Let $mul(l, r) = \prod_{i = l}^{r} a_i$ and $fac(l, r) $ be the number of distinct prime factors of $mul(l, r)$.
 
 Please calculate $\sum_{i = 1}^{n}\sum_{j = i}^{n}fac(i, j)$
 
