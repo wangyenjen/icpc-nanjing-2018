@@ -5,7 +5,7 @@ CXXFLAGS = -std=c++14 -Wall -O2 -I../include
 
 SAMPLES = 00 01
 TESTDATA = 02 03 04 05 06 07 08 09 10
-TESTSUB = ac-1
+TESTSUB = ac-1 wa-1 ac-ternary-search ac-random
 
 INPUTS = $(TESTDATA:%=inputs/%.txt)
 OUTPUTS = $(SAMPLES:%=outputs/%-sample.txt) $(TESTDATA:%=outputs/%.txt)
