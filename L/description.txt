@@ -16,7 +16,7 @@ Your job is to calculate the minimum number of adjusting step required to make t
 
 Input
 -----
-The first line contains three positive integers $N, X, Y$.
+The first line contains three positive integers $N, X, Y$ ($1 \le N \le 5000, 1 \le X, Y \le 10^6, X != Y$).
 
 The second line cantains $N$ positive integers,  $a_0, a_1,\cdots,a_{N-1}$ ($1 \le a_i \le 10^6$).
 
