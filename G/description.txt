@@ -3,11 +3,11 @@ Pyramid
 
 The use of the triangle in the New Age practices seems to be very important as it represents the unholy trinity (Satan, the Antichrist and the False Prophet bringing mankind to the New World Order with false/distorted beliefs). The triangle is of primary importance in all Illuminati realms, whether in the ritual ceremonies of the Rosicrucians and Masons or the witchcraft, astrological and black magic practices of other Illuminati followers.
 
-One day you found out that a class of mysterious patterns. The patterns can be classified into different degrees. A pattern of degree $n$ consists of $\frac{n(n+1)}{2}$ small regular triangles with side length $1$, all in the same direction, forming a big triangle. The figure below shows the pattern of degree $3$. All small regular triangles are painted in red.
+One day you found a class of mysterious patterns. The patterns can be classified into different degrees. A pattern of degree $n$ consists of $\frac{n(n+1)}{2}$ small regular triangles with side length $1$, all in the same direction, forming a big triangle. The figure below shows the pattern of degree $3$. All small regular triangles are painted in red.
 
  ![A pattern of degree 3](img/pattern3.png)
 
-Since the pattern contains many regular triangles, which is very evil and unacceptable, you want to calculate the number of regular triangles formed by the vertices in the pattern, so that you can estimate the strength of Illuminati. It is not necessary that each side of regular triangles is parallel to one side of the triangles. The figure below shows two regular triangles formed by the vertices in a pattern of degree $3$.
+Since the pattern contains many regular triangles, which is very evil and unacceptable, you want to calculate the number of regular triangles formed by vertices in the pattern, so that you can estimate the strength of Illuminati. It is not necessary that each side of regular triangles is parallel to one side of the triangles. The figure below shows two regular triangles formed by vertices in a pattern of degree $3$.
 
  ![Example regular triangles in a pattern of degree 3](img/pattern3-tri.png)
 
