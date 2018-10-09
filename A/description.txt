@@ -17,7 +17,7 @@ The first line contains two integers $N, K$ ($0 \le N \le 10^6, 1 \le K \le 10^6
 
 Output
 ------
-Print a name("Adrien" or "Austin") - the person who is going to win the game.
+Print a name (`"Adrien"` or `"Austin"`, without the quotes) - the person who is going to win the game.
 
 
 
