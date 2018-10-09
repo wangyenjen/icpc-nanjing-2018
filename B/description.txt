@@ -1,12 +1,12 @@
 Tournament
 ====================
-There are $N$ villagers (including the village chief) living in Number Village. Interestingly, all of their houses lie on a straight line. The house of the $i$-th villager ($0\leq i<N$) lies exactly $a_i$ kilometers to the east of the village chief's house. (For simplicity, the 0-th villager is the village chief, so $a_0=0$.)
+There are $N$ villagers (including the village chief) living in Number Village. Interestingly, all of their houses lie on a straight line. The house of the $i$-th villager ($0\leq i<N$) lies exactly $a_i$ kilometers to the east of the village chief's house. (For simplicity, the $0$-th villager is the village chief, so $a_0=0$.)
 
 Recently, a tournament is going to be held in Number Village, in which everyone in the village will participate.
 
 For the convenience of villagers, the organizer plans to build $K$ stadiums. The stadium can be built anywhere in the village, even at the same place as any villager's house.
 
-However, the organizer wants the traffic cost to be minimized. The traffic cost is defined by $\sum^{N-1}_{i=0} \min^{K-1}_{j=0} D(a_i, s_j)$, where $D(a_i, s_j)$ is the distance between the i-th villager's house and the j-th stadium.
+However, the organizer wants the traffic cost to be minimized. The traffic cost is defined by $\sum^{N-1}_{i=0} \min^{K-1}_{j=0} D(a_i, s_j)$, where $D(a_i, s_j)$ is the distance between the $i$-th villager's house and the $j$-th stadium.
 
 Your task is to calculate the minimal traffic cost (rounded down to the nearest integer), given $N, K$ and $a_i$.
 
@@ -32,3 +32,14 @@ Sample Input 1
 Sample Output 1
 ---------------
 7
+
+
+Sample Input 2
+--------------
+9 3
+0 1 10 11 20 21 22 30 32
+
+
+Sample Output 2
+---------------
+23
