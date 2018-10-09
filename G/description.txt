@@ -3,23 +3,25 @@ Pyramid
 
 The use of the triangle in the New Age practices seems to be very important as it represents the unholy trinity (Satan, the Antichrist and the False Prophet bringing mankind to the New World Order with false/distorted beliefs). The triangle is of primary importance in all Illuminati realms, whether in the ritual ceremonies of the Rosicrucians and Masons or the witchcraft, astrological and black magic practices of other Illuminati followers.
 
-One day you found out that a pyramid contains many regular triangles, which is very evil and unacceptable. You want to calculate the number of regular triangles in a big pyramid, so that you can estimate the strength of Illuminati. A pyramid with height equals to $n$ is combined with $\frac{n\cdot(n + 1)}{2}$small pyramids.
+One day you found out that a class of mysterious patterns. The patterns can be classified into different degrees. A pattern of degree $n$ consists of $\frac{n(n+1)}{2}$ small regular triangles with side length $1$, all in the same direction, forming a big triangle. The figure below shows the pattern of degree $3$. All small regular triangles are painted in red.
 
-It is not necessary that each side of regular triangles is parallel to one side of the pyramid. However, each vertice of the regular triangle should be on one side of a pyramid.
+ ![A pattern of degree 3](img/pattern3.png)
 
- ![pyramid](img/pyramid.png)
+Since the pattern contains many regular triangles, which is very evil and unacceptable, you want to calculate the number of regular triangles formed by the vertices in the pattern, so that you can estimate the strength of Illuminati. It is not necessary that each side of regular triangles is parallel to one side of the triangles. The figure below shows two regular triangles formed by the vertices in a pattern of degree $3$.
 
+ ![Example regular triangles in a pattern of degree 3](img/pattern3-tri.png)
 
+Since the answer can be very large, you only need to calculate the number modulo $10^9+7$.
 
 Input
 -----
 The first line contains an integer $t$ ($1 \le t \le 10^6$) --- the number of test cases.
 
-Each of the next $t$ lines contains an integers $n$ $(1 \le n \le 10^9$) --- the height of the pyramid.
+Each of the next $t$ lines contains an integers $n$ $(1 \le n \le 10^9$) --- the degree of the pattern.
 
 Output
 ------
-The number of regular triangle mod $10^9 + 7$.
+For each test case, print a integer in one line --- the number of regular triangles modulo $10^9 + 7$.
 
 Sample Input 1
 --------------
