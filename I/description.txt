@@ -9,7 +9,7 @@ Input
 -----
 The first line contains three integers  $n, m, k$  ($1 \le n, m, k \le 500$) --- the number of heroes, the number of monsters. and the number of bottles of potion.
 
-Each of the next $n$ lines contains one integers $t_i$, the size of $M_i$, and the following  $t_{i}$ integers $M_{i, j}$ , the monsters that can be killed by hero $i$ ($1 \le t_i, M_{i, j} \le m$).
+Each of the next $n$ lines contains one integers $t_i$, the size of $M_i$, and the following  $t_{i}$ integers $M_{i, j}$ , the monsters that can be killed by hero $i$ ($1 \le t_i\le m, 1\leq M_{i, j} \le m$).
 
 Output
 ------
